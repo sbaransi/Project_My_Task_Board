@@ -1,0 +1,90 @@
+body {
+    background-image: url("yellow-sandy-texture.jpg"); /* Replace with your image path */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevent image repetition */
+  
+    height:100vh;
+  }
+
+   .form-group {
+    background-image: url("paper-note.png");
+    z-index: 100;
+   
+  } 
+
+  h1 {
+    font-size: 3rem; 
+    padding: 5px; 
+    margin-bottom: 1cap;
+    margin-top:1cap;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  /* input[type="text"] ,input[type="date"] , input[type="time"]  {
+    
+    height: 2rem;
+    font-size: 16px; 
+    padding: 5px; 
+    margin-bottom: 20px;
+    margin-left:20px;
+ 
+  }
+
+  form button {
+    width: 689px;
+    height: 2rem;
+    font-size: 16px; 
+    padding: 5px; 
+    margin-bottom: 20px;
+    margin-left:20px;
+  } */
+  
+  /*
+
+   background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: contain; 
+    background-position: center;
+    width:689px;
+    height:339px;
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    z-index: 10;
+    border:2 px, solid,grey;
+    padding:100px;
+    margin-left:400px;
+     margin-left: 400px; 
+
+
+  input[type="text"] ,input[type="date"] , input[type="time"]  {
+    
+    height: 2rem;
+    font-size: 16px; 
+    padding: 5px; 
+    margin-bottom: 20px;
+    margin-left:20px;
+    flex-grow: 1
+  }
+
+  form button {
+    width: 689px;
+    height: 2rem;
+    font-size: 16px; 
+    padding: 5px; 
+    margin-bottom: 20px;
+    margin-left:20px;
+  }
+
+  h1 {
+    font-size: 3rem; 
+    padding: 5px; 
+    margin-bottom: 20px;
+    margin-left:20px;
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+
+  } */
