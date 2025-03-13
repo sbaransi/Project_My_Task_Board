@@ -1,71 +1,97 @@
 
-const productForm = document.getElementById('product-form')
-const productNameInput = document.getElementById('product-name')
-const producPriceInput = document.getElementById('product-price')
-const productCategories = document.getElementById('productCategories')
-const productImage = document.getElementById('productImage')
-const addProductBtn = document.getElementById('addProductBtn')
-const tableHeader = document.getElementById('table-header')
-const cartTableBody = document.getElementById('table-body')
-
-let products = [];
-
-//get for local storage
-products = JSON.parse(localStorage.getItem('products'))|| [];
+const taskForm = document.getElementById('form-group')
+const taskDescription = document.getElementById('task-Description')
+const taskDate = document.getElementById('task-Date')
+const taskTime = document.getElementById('task-Time')
+// const taskImageNote = document.getElementById('task-Image')
+const addTasktBtn = document.getElementById('addTaskButton')
+const resetFormBtn = document.getElementById('resetFormButton')
+const deleteTaskBtn = document.getElementById('deleteBtn')
+const taskList = document.getElementById('taskList')
 
 
+let tasks = [];
+
+//get from local storage
+tasks = JSON.parse(localStorage.getItem('tasksStorageList')) || [];
 
 //save local storage
-function saveProductsToLocalStorage() {
-    localStorage.setItem('products', JSON.stringify(products));
+function saveTasksToLocalStorage() {
+    localStorage.setItem('tasksStorageList', JSON.stringify(tasks));
 }
 
+// From reset 
+function formReset() {
+    taskDescription.value = '';
+    taskDate.value = '';
+    taskTime.value = '';
+}
 
 //Display Product
-function displayProduct(products) {
-    cartTableBody.innerHTML = '';
-    products.forEach((product, index) => { // Correct forEach syntax
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${product.name}</td>
-            <td>${product.price}</td>
-            <td>${product.category}</td>
-            <td><img src="${product.image}"></td>
-            <td><button class=deleteBtn data-index="${index}">Delete</button></td>
+function displayTasksList(tasks) {
+    if (!Array.isArray(tasks)) return;
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => { // Correct forEach syntax
+        const card = document.createElement('div');
+
+        card.innerHTML = `       
+    <div class="col-md-10 mb-3">
+    <div class="row">
+        <div class="card">      
+            <div class="card-body">
+            <i class="bi bi-file-x-fill deleteBtnPointer" id="deleteBtn" data-index="${index}""></i>             
+                <p class="card-text"><strong>${task.description}</strong></p>
+                <p class="card-date"><strong>${task.date}</strong></p> 
+                <p class="card-time"><strong>${task.time}</strong></p>
+                                                       
+            </div>
+        </div>
+    </div>          
         `;
-        cartTableBody.appendChild(row); // Append the row to the table body
+       
+        taskList.appendChild(card); // Append the row to the table body
+         // Add a class for the initial state
+         card.classList.add('card-initial');
+        // Trigger the transition after a short delay
+        setTimeout(() => {
+            card.classList.remove('card-initial');
+        }, 10000); // Adjust delay as needed
     });
 }
 
-// ADD Product to local storage and render on screen
-addProductBtn.addEventListener('click', () => {
+// ADD task to local storage and show on screen
+addTasktBtn.addEventListener('click', () => {
 
-    const product = {
-        name: productNameInput.value,
-        price: producPriceInput.value,
-        category: productCategories.value,
-        image: productImage.value.trim(),
+    const task = {
+        
+        description: taskDescription.value,
+        date: taskDate.value,
+        time: taskTime.value,
     }
-    if(product.name && !isNaN(product.price) && product.category && product.image) {
-        products.push(product);
+    if (task.description && task.date && task.time) {
+        tasks.push(task);
+
     } else {
         alert('Enter all data');
     }
-           
-    saveProductsToLocalStorage();
-    displayProduct(products);
-
+    saveTasksToLocalStorage();
+    displayTasksList(tasks);
 });
 
-cartTableBody.addEventListener('click' , (event) => {
-
-if(event.target.classList.contains('deleteBtn')){
-    const index = parseInt(event.target.dataset.index);
-    products.splice(index,1)
-    saveProductsToLocalStorage();
-    displayProduct(products);
-}
-
+resetFormBtn.addEventListener('click', () => {
+    formReset();
 });
 
-displayProduct(products);
+
+taskList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('deleteBtnPointer')) {
+        const index = parseInt(event.target.dataset.index);
+        tasks.splice(index, 1);
+        saveTasksToLocalStorage();
+        taskList.innerHTML = '';
+        displayTasksList(tasks);
+    }
+});
+
+
+displayTasksList(tasks);

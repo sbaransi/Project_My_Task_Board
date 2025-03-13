@@ -1,90 +1,117 @@
 body {
-    background-image: url("yellow-sandy-texture.jpg"); /* Replace with your image path */
-    background-size: cover; /* Cover the entire viewport */
-    background-repeat: no-repeat; /* Prevent image repetition */
-  
-    height:100vh;
-  }
 
-   .form-group {
-    background-image: url("paper-note.png");
-    z-index: 100;
-   
-  } 
+  background-image: url("yellow-sandy-texture.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+}
 
-  h1 {
-    font-size: 3rem; 
-    padding: 5px; 
-    margin-bottom: 1cap;
-    margin-top:1cap;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+form {
+  background-image: url("paper-form.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width: auto;
+  max-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  border: 2px, solid, grey;
+  padding-top: 25px;
+  padding-left: 160px;
+  margin-bottom: 16px;
 
-  }
-  /* input[type="text"] ,input[type="date"] , input[type="time"]  {
-    
-    height: 2rem;
-    font-size: 16px; 
-    padding: 5px; 
-    margin-bottom: 20px;
-    margin-left:20px;
- 
-  }
-
-  form button {
-    width: 689px;
-    height: 2rem;
-    font-size: 16px; 
-    padding: 5px; 
-    margin-bottom: 20px;
-    margin-left:20px;
-  } */
-  
-  /*
-
-   background-repeat: no-repeat; 
-    background-attachment: fixed;
-    background-size: contain; 
-    background-position: center;
-    width:689px;
-    height:339px;
-    display:flex;
-    flex-direction: column;
-    justify-items: center;
-    z-index: 10;
-    border:2 px, solid,grey;
-    padding:100px;
-    margin-left:400px;
-     margin-left: 400px; 
+}
 
 
-  input[type="text"] ,input[type="date"] , input[type="time"]  {
-    
-    height: 2rem;
-    font-size: 16px; 
-    padding: 5px; 
-    margin-bottom: 20px;
-    margin-left:20px;
-    flex-grow: 1
-  }
+.form-group label {
+  margin-bottom: 40px;
+  margin-left: 20px;
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  form button {
-    width: 689px;
-    height: 2rem;
-    font-size: 16px; 
-    padding: 5px; 
-    margin-bottom: 20px;
-    margin-left:20px;
-  }
+.addTaskButton button {
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
 
-  h1 {
-    font-size: 3rem; 
-    padding: 5px; 
-    margin-bottom: 20px;
-    margin-left:20px;
-    display:flex;
-    flex-direction: column;
-    justify-items: center;
+.form-group input {
+  margin-bottom: 40px;
+  margin-left: 30px;
+}
 
-  } */
+h1 {
+  font-size: 3rem;
+  padding: 5px;
+  margin-bottom: 1cap;
+  margin-top: 1cap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.taskContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  height: 200px;
+  background-color: yellow;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: relative;
+  left: 50px;
+  opacity: 1;
+  transition: 5s ease-in-out;
+}
+
+.card-content {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card i.deleteBtnPointer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card p.card-date {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}
+
+.card p.card-time {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+}
+
+.card p.card-date {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+
+}
